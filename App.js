@@ -8,9 +8,15 @@ import {
 	Rubik_800ExtraBold,
 	Rubik_900Black,
 } from "@expo-google-fonts/rubik";
+import {
+	ShortStack_400Regular,
+	ShortStack_700Bold,
+} from "@expo-google-fonts/short-stack";
 import BottomTabs from "./components/BottomTabs";
 import HomeScreen from "./screens/Home";
 import { NavigationContainer } from "@react-navigation/native";
+import Onboarding1 from "./screens/onboarding/Onboarding1";
+import ReferralCode from "./screens/onboarding/ReferralCode";
 
 export default function App() {
 	let [fontsLoaded, fontError] = useFonts({
@@ -20,6 +26,7 @@ export default function App() {
 		Rubik_700Bold,
 		Rubik_800ExtraBold,
 		Rubik_900Black,
+		ShortStack_400Regular,
 	});
 
 	if (!fontsLoaded && !fontError) {
@@ -27,7 +34,9 @@ export default function App() {
 	}
 	return (
 		<SafeAreaView style={styles.container}>
-			<BottomTabs />
+			{/* <BottomTabs /> */}
+			{/* <Onboarding1 /> */}
+			<ReferralCode />
 		</SafeAreaView>
 	);
 }
