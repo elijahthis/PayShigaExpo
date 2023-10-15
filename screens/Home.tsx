@@ -3,10 +3,11 @@ import HomeBar from "../components/HomeBar";
 import BalanceButtons from "../components/BalanceButtons";
 import Spacer from "../components/Spacer";
 import ActionCardRow from "../components/ActionCardRow";
+import { pageStyles } from "../styles/pageStyles";
 
 const HomeScreen = () => {
 	return (
-		<View style={styles.container}>
+		<View style={pageStyles.container}>
 			<HomeBar />
 			<BalanceButtons />
 			<Spacer size={16} />
@@ -17,15 +18,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#0F0F10",
-		color: "#ffffff",
-	},
-	text: {},
-	button: {
-		// textAlign: "center",
-	},
-});

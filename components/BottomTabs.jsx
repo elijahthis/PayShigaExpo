@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 import HomeScreen from "../screens/Home";
 import {
 	NavigationContainer,
@@ -14,6 +14,7 @@ import {
 	TransactionsIcon,
 } from "./svgs";
 import { cloneElement } from "react";
+import ComingSoon from "../screens/ComingSoon";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,10 +28,10 @@ const MyTheme = {
 
 const tabList = [
 	{ name: "Home", component: HomeScreen, icon: HomeIcon },
-	{ name: "Transactions", component: View, icon: TransactionsIcon },
-	{ name: "Search", component: View, icon: SearchIcon },
-	{ name: "Card", component: View, icon: CardIcon },
-	{ name: "Profile", component: View, icon: ProfileIcon },
+	{ name: "Transactions", component: ComingSoon, icon: TransactionsIcon },
+	{ name: "Search", component: ComingSoon, icon: SearchIcon },
+	{ name: "Card", component: ComingSoon, icon: CardIcon },
+	{ name: "Profile", component: ComingSoon, icon: ProfileIcon },
 ];
 
 const BottomTabs = () => {
@@ -49,6 +50,13 @@ const BottomTabs = () => {
 								.filter((item) => item.name === route.name)[0]
 								.icon({ color })
 						);
+					},
+					tabBarStyle: {
+						paddingBottom: 9,
+						paddingTop: 10,
+						paddingLeft: 28,
+						paddingRight: 28,
+						backgroundColor: "#171819",
 					},
 				})}
 			>
