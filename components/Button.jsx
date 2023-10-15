@@ -4,8 +4,9 @@ const CustomButton = ({ text = "Button", onPress, style, textStyle }) => {
 	const styles = StyleSheet.create({
 		pressable: {
 			backgroundColor: "#6771FF",
-			borderRadius: 8,
-			padding: 16,
+			borderRadius: 100,
+			paddingVertical: 11.5,
+			paddingHorizontal: 16,
 
 			flex: 1,
 			alignItems: "center",
@@ -13,6 +14,9 @@ const CustomButton = ({ text = "Button", onPress, style, textStyle }) => {
 		},
 		text: {
 			color: "white",
+			fontFamily: "Rubik_500Medium",
+			fontSize: 17,
+			lineHeight: 24,
 		},
 	});
 

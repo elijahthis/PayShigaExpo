@@ -5,25 +5,28 @@ import {
 	TextInput,
 	TouchableWithoutFeedback,
 	Keyboard,
+	KeyboardAvoidingView,
 } from "react-native";
 import { ReferralCodeIcon } from "../../components/svgs";
 import { pageStyles } from "../../styles/pageStyles";
 import Spacer from "../../components/Spacer";
 import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
+import CustomButton from "../../components/Button";
 
 const ReferralCode = () => {
 	const [code, setCode] = useState("");
 
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-			<View
+			<KeyboardAvoidingView
 				style={{
 					...pageStyles.container,
 					paddingHorizontal: 40,
 					paddingTop: 12,
 					paddingBottom: 16,
 				}}
+				behavior={Platform.OS === "ios" ? "padding" : "height"}
 			>
 				<ReferralCodeIcon style={{ marginBottom: 20 }} />
 				<Text
@@ -52,7 +55,21 @@ const ReferralCode = () => {
 						TAP to find how they find their code?
 					</Text>
 				</View>
-			</View>
+				<View style={styles.btnWrap}>
+					<CustomButton
+						text="Skip"
+						onPress={() => {}}
+						// textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
+						style={{ backgroundColor: "#1F2021" }}
+					/>
+					<CustomButton
+						text="Continue"
+						// onPress={() => {}}
+						// textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
+						// style={styles.transparent}
+					/>
+				</View>
+			</KeyboardAvoidingView>
 		</TouchableWithoutFeedback>
 	);
 };
@@ -80,5 +97,13 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		lineHeight: 19,
 		color: "#A2A3A3",
+	},
+
+	btnWrap: {
+		flexDirection: "row",
+		alignItems: "center",
+		gap: 16,
+		marginTop: "auto",
+		paddingVertical: 16,
 	},
 });
