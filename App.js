@@ -1,20 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from "react-native";
+import {
+	useFonts,
+	Rubik_400Regular,
+	Rubik_500Medium,
+	Rubik_600SemiBold,
+	Rubik_700Bold,
+	Rubik_800ExtraBold,
+	Rubik_900Black,
+} from "@expo-google-fonts/rubik";
+import BottomTabs from "./components/BottomTabs";
+import HomeScreen from "./screens/Home";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	let [fontsLoaded, fontError] = useFonts({
+		Rubik_400Regular,
+		Rubik_500Medium,
+		Rubik_600SemiBold,
+		Rubik_700Bold,
+		Rubik_800ExtraBold,
+		Rubik_900Black,
+	});
+
+	if (!fontsLoaded && !fontError) {
+		return null;
+	}
+	return (
+		<SafeAreaView style={styles.container}>
+			<BottomTabs />
+		</SafeAreaView>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		backgroundColor: "#0F0F10",
+		color: "#ffffff",
+	},
+	text: {},
+	button: {
+		// textAlign: "center",
+	},
 });
