@@ -4,7 +4,14 @@ import Spacer from "../components/Spacer";
 
 const ComingSoon = () => {
 	return (
-		<View style={{ ...pageStyles.container, paddingTop: "25%" }}>
+		<View
+			style={{
+				...pageStyles.container,
+				paddingTop: "25%",
+				paddingLeft: 16,
+				paddingRight: 16,
+			}}
+		>
 			<Text style={styles.title}>Coming Soon</Text>
 			<Spacer size={16} />
 			<Text style={styles.desc}>

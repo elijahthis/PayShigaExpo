@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { Svg, G, Path, Defs, ClipPath } from "react-native-svg";
+import { Svg, G, Path, Defs, ClipPath, Rect } from "react-native-svg";
 
 export const HomeIcon = ({ color }) => (
 	<View style={styles.container}>
@@ -115,6 +115,46 @@ export const ProfileIcon = ({ color }) => (
 		</Svg>
 	</View>
 );
+
+export const ExchangeIcon = () => (
+	<Svg
+		width={40}
+		height={40}
+		viewBox="0 0 40 40"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<Rect width={40} height={40} rx={12} fill="#727AE4" />
+		<Path
+			d="M15.806 12.242v9.266m0-9.266l-4.03 4.118m4.03-4.118l3.998 4.118m4.625 2.757v8.641m0 0l-3.705-3.641m3.705 3.641l3.795-3.493"
+			stroke="#fff"
+			strokeWidth={2.45}
+			strokeLinecap="round"
+		/>
+	</Svg>
+);
+
+export const EducationIcon = () => (
+	<Svg
+		width={40}
+		height={40}
+		viewBox="0 0 40 40"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<Rect width={40} height={40} rx={12} fill="#727AE4" />
+		<Path
+			d="M31.066 16.662l-11.15 4.216a1.08 1.08 0 01-.782-.008L8.867 16.774a.324.324 0 01-.003-.6l10.272-4.196a1.08 1.08 0 01.78-.014l11.146 4.09a.324.324 0 01.003.608z"
+			fill="#fff"
+		/>
+		<Path
+			d="M19.121 23.185l-8.418-3.403v5.04c5.102 4.394 12.662 4.486 17.734.214v-5.254l-8.51 3.404a1.08 1.08 0 01-.806-.001z"
+			fill="#fff"
+		/>
+	</Svg>
+);
+
+// ------------------- Styles -------------------------------
 
 const styles = StyleSheet.create({
 	container: {
