@@ -18,6 +18,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Onboarding1 from "./screens/onboarding/Onboarding1";
 import ReferralCode from "./screens/onboarding/ReferralCode";
 import OTPCodePage from "./screens/onboarding/OTPCode";
+import UserTagPage from "./screens/onboarding/UserTagPage";
 
 export default function App() {
 	let [fontsLoaded, fontError] = useFonts({
@@ -38,7 +39,8 @@ export default function App() {
 			{/* <BottomTabs /> */}
 			{/* <Onboarding1 /> */}
 			{/* <ReferralCode /> */}
-			<OTPCodePage />
+			{/* <OTPCodePage /> */}
+			<UserTagPage />
 		</SafeAreaView>
 	);
 }
