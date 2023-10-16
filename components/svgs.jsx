@@ -293,6 +293,25 @@ export const ImageIcon = ({ style }) => (
 	</Svg>
 );
 
+export const DropdownArrow = () => (
+	<Svg
+		width={14}
+		height={14}
+		viewBox="0 0 14 14"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<Path
+			d="M7.092 9.042l-3.3-3.3h6.417l-3.117 3.3z"
+			fill="#fff"
+			stroke="#fff"
+			strokeWidth={1.75148}
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+	</Svg>
+);
+
 // ------------------- Styles -------------------------------
 
 const styles = StyleSheet.create({

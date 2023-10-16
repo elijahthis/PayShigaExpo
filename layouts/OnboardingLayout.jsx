@@ -8,7 +8,7 @@ import {
 import { pageStyles } from "../styles/pageStyles";
 import Icon from "react-native-vector-icons/Entypo";
 
-const OnboardingLayout = ({ children }) => {
+const OnboardingLayout = ({ children, navigation }) => {
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			<KeyboardAvoidingView
@@ -23,7 +23,7 @@ const OnboardingLayout = ({ children }) => {
 					name="chevron-left"
 					color="white"
 					size={24}
-					onPress={() => {}}
+					onPress={() => navigation.goBack()}
 					style={{
 						marginBottom: 12,
 						paddingHorizontal: 20,

@@ -3,7 +3,7 @@ import CustomButton from "../../components/Button";
 import { OnboardingArrow } from "../../components/svgs";
 import { pageStyles } from "../../styles/pageStyles";
 
-const Onboarding1 = () => {
+const Onboarding1 = ({ navigation }) => {
 	return (
 		<View style={pageStyles.container}>
 			<View style={styles.btnWrap}>
@@ -19,7 +19,7 @@ const Onboarding1 = () => {
 				/>
 				<CustomButton
 					text="Create an account"
-					onPress={() => {}}
+					onPress={() => navigation.navigate("ReferralCode")}
 					textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#0F0F10" }}
 					style={styles.fill}
 				/>

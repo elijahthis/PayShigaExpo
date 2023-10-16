@@ -14,12 +14,10 @@ import {
 } from "@expo-google-fonts/short-stack";
 import BottomTabs from "./components/BottomTabs";
 import HomeScreen from "./screens/Home";
-import { NavigationContainer } from "@react-navigation/native";
-import Onboarding1 from "./screens/onboarding/Onboarding1";
-import ReferralCode from "./screens/onboarding/ReferralCode";
-import OTPCodePage from "./screens/onboarding/OTPCode";
-import UserTagPage from "./screens/onboarding/UserTagPage";
-import DisplayImagePage from "./screens/onboarding/DisplayImagePage";
+import { DarkTheme, NavigationContainer } from "@react-navigation/native";
+
+import PhoneCodeModal from "./components/PhoneCodeModal";
+import ShigaStackNavigator from "./navigation/ShigaStackNavigator";
 
 export default function App() {
 	let [fontsLoaded, fontError] = useFonts({
@@ -35,14 +33,13 @@ export default function App() {
 	if (!fontsLoaded && !fontError) {
 		return null;
 	}
+
 	return (
 		<SafeAreaView style={styles.container}>
-			{/* <BottomTabs /> */}
-			{/* <Onboarding1 /> */}
-			{/* <ReferralCode /> */}
-			{/* <OTPCodePage /> */}
-			{/* <UserTagPage /> */}
-			<DisplayImagePage />
+			<NavigationContainer theme={DarkTheme}>
+				{/* <BottomTabs /> */}
+			</NavigationContainer>
+			<ShigaStackNavigator />
 		</SafeAreaView>
 	);
 }

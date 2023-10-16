@@ -12,7 +12,7 @@ import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
 
-const ReferralCode = () => {
+const ReferralCode = ({ navigation }) => {
 	const [code, setCode] = useState("");
 
 	return (
@@ -56,13 +56,17 @@ const ReferralCode = () => {
 				<View style={styles.btnWrap}>
 					<CustomButton
 						text="Skip"
-						onPress={() => {}}
+						onPress={() => {
+							navigation.navigate("PhoneNumberPage");
+						}}
 						// textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
 						style={{ backgroundColor: "#1F2021" }}
 					/>
 					<CustomButton
 						text="Continue"
-						// onPress={() => {}}
+						onPress={() => {
+							navigation.navigate("PhoneNumberPage");
+						}}
 						// textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
 						// style={styles.transparent}
 					/>

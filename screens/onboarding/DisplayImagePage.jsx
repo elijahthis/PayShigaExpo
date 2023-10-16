@@ -22,7 +22,7 @@ import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
 import ImageUpload from "../../components/ImageUpload";
 
-const DisplayImagePage = () => {
+const DisplayImagePage = ({ navigation }) => {
 	const colorList = [
 		"#4B92F7",
 		"#75E6C0",
@@ -37,7 +37,7 @@ const DisplayImagePage = () => {
 	const [selectedColor, setSelectedColor] = useState("");
 
 	return (
-		<OnboardingLayout>
+		<OnboardingLayout navigation={navigation}>
 			<View>
 				<Text
 					style={{
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingVertical: 10,
 	},
-	
+
 	colorBottom: {
 		flexDirection: "column",
 		alignItems: "stretch",

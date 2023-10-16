@@ -3,11 +3,11 @@ import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
 
-const UserTagPage = () => {
+const UserTagPage = ({ navigation }) => {
 	const [code, setCode] = useState("");
 
 	return (
-		<OnboardingLayout>
+		<OnboardingLayout navigation={navigation}>
 			<Text
 				style={{
 					fontFamily: "Rubik_500Medium",
@@ -34,7 +34,12 @@ const UserTagPage = () => {
 				/>
 			</View>
 			<View style={styles.btnWrap}>
-				<CustomButton text="Continue" onPress={() => {}} />
+				<CustomButton
+					text="Continue"
+					onPress={() => {
+						navigation.navigate("DisplayImagePage");
+					}}
+				/>
 			</View>
 		</OnboardingLayout>
 	);
