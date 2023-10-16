@@ -21,6 +21,8 @@ import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
 import ImageUpload from "../../components/ImageUpload";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../../state/hookSt";
 
 const DisplayImagePage = ({ navigation }) => {
 	const colorList = [
@@ -33,6 +35,8 @@ const DisplayImagePage = ({ navigation }) => {
 		"#E26F3F",
 		"#9F40F5",
 	];
+
+	const globalStateObj = useHookstate(globalState);
 
 	const [selectedColor, setSelectedColor] = useState("");
 
@@ -76,7 +80,15 @@ const DisplayImagePage = ({ navigation }) => {
 				</View>
 			</View>
 			<View style={styles.btnWrap}>
-				<CustomButton text="Continue" onPress={() => {}} />
+				<CustomButton
+					text="Continue"
+					onPress={() => {
+						globalStateObj.set({
+							...globalStateObj.get(),
+							isLoggedIn: true,
+						});
+					}}
+				/>
 			</View>
 		</OnboardingLayout>
 	);

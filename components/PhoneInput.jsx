@@ -6,16 +6,25 @@ import {
 	View,
 } from "react-native";
 import { DropdownArrow } from "./svgs";
-import { NavigationContainer, Drawer } from "@react-navigation/native";
-// import { createDrawerNavigator } from "@react-navigation/drawer";
 import HomeScreen from "../screens/Home";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../state/hookSt";
+import PhoneCodeModal from "./PhoneCodeModal";
 
 const PhoneInput = ({ navigation }) => {
-	// const Drawer = createDrawerNavigator();
+	const globalStateObj = useHookstate(globalState);
 
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity onPress={() => navigation.navigate("phoneModal")}>
+			<TouchableOpacity
+				onPress={() => {
+					console.log("open phone modal", globalStateObj.get());
+					globalStateObj.set({
+						...globalStateObj.get(),
+						isPhoneModalVisible: true,
+					});
+				}}
+			>
 				<View style={styles.countryCode}>
 					<Text style={styles.countryCodeTxt}>+234</Text>
 					<DropdownArrow />
@@ -27,6 +36,7 @@ const PhoneInput = ({ navigation }) => {
 				placeholderTextColor="#A2A3A3"
 				keyboardType="phone-pad"
 			/>
+			<PhoneCodeModal />
 		</View>
 	);
 };

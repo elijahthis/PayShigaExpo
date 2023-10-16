@@ -1,12 +1,32 @@
-import { Text, View } from "react-native";
+import { useHookstate } from "@hookstate/core";
+import { StyleSheet, Text, View } from "react-native";
+import { globalState } from "../state/hookSt";
+import BottomModal from "./BottomModal";
 
 const PhoneCodeModal = () => {
+	const globalStateObj = useHookstate(globalState);
+
 	return (
-		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-			<Text style={{ fontSize: 30 }}>This is a modal!</Text>
-			{/* <Button onPress={() => navigation.goBack()} title="Dismiss" /> */}
-		</View>
+		<BottomModal
+			visible={globalStateObj.get().isPhoneModalVisible}
+			closeFunc={() => {
+				globalStateObj.set({
+					...globalStateObj.get(),
+					isPhoneModalVisible: false,
+				});
+			}}
+		>
+			<Text style={styles.modalText}>Hello World!</Text>
+		</BottomModal>
 	);
 };
 
 export default PhoneCodeModal;
+
+const styles = StyleSheet.create({
+	modalText: {
+		color: "white",
+		fontSize: 40,
+		marginBottom: 15,
+	},
+});

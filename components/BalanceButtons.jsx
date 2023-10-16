@@ -1,8 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import Spacer from "./Spacer";
 import CustomButton from "./Button";
+import { globalState } from "../state/hookSt";
+import { useHookstate } from "@hookstate/core";
 
 const BalanceButtons = () => {
+	const globalStateObj = useHookstate(globalState);
+
 	return (
 		<View style={styles.container}>
 			<Spacer size={16} />
@@ -15,7 +19,16 @@ const BalanceButtons = () => {
 				<Text style={styles.balance}>₦95,800.05</Text>
 				<Spacer size={32} />
 				<View style={styles.buttons}>
-					<CustomButton text="Add Money" style={styles.button} />
+					<CustomButton
+						text="Add Money"
+						style={styles.button}
+						onPress={() => {
+							globalStateObj.set({
+								...globalStateObj.get(),
+								isLoggedIn: false,
+							});
+						}}
+					/>
 					<CustomButton text="Transfer" style={styles.button} />
 				</View>
 			</View>

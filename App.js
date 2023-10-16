@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import {
 	useFonts,
@@ -15,11 +16,14 @@ import {
 import BottomTabs from "./components/BottomTabs";
 import HomeScreen from "./screens/Home";
 import { DarkTheme, NavigationContainer } from "@react-navigation/native";
-
-import PhoneCodeModal from "./components/PhoneCodeModal";
 import ShigaStackNavigator from "./navigation/ShigaStackNavigator";
+import ShigaTabNavigator from "./navigation/ShigaTabNavigator";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "./state/hookSt";
 
 export default function App() {
+	const globalStateObj = useHookstate(globalState);
+
 	let [fontsLoaded, fontError] = useFonts({
 		Rubik_400Regular,
 		Rubik_500Medium,
@@ -36,10 +40,11 @@ export default function App() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<NavigationContainer theme={DarkTheme}>
-				{/* <BottomTabs /> */}
-			</NavigationContainer>
-			<ShigaStackNavigator />
+			{globalStateObj.value.isLoggedIn ? (
+				<ShigaTabNavigator />
+			) : (
+				<ShigaStackNavigator />
+			)}
 		</SafeAreaView>
 	);
 }
