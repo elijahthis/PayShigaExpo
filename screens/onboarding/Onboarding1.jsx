@@ -1,4 +1,4 @@
-import { Button, StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import CustomButton from "../../components/Button";
 import { OnboardingArrow } from "../../components/svgs";
 import { pageStyles } from "../../styles/pageStyles";

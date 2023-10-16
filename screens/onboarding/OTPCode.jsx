@@ -1,16 +1,4 @@
-import {
-	View,
-	Text,
-	StyleSheet,
-	TextInput,
-	TouchableWithoutFeedback,
-	Keyboard,
-	KeyboardAvoidingView,
-	Pressable,
-} from "react-native";
-import { ReferralCodeIcon } from "../../components/svgs";
-import { pageStyles } from "../../styles/pageStyles";
-import Spacer from "../../components/Spacer";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";

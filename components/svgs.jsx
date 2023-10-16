@@ -232,6 +232,67 @@ export const ReferralCodeIcon = ({ style }) => (
 	</Svg>
 );
 
+export const AddIcon = () => (
+	<Svg
+		width={167}
+		height={166}
+		viewBox="0 0 167 166"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<Path
+			d="M162.5 83c0 43.63-35.37 79-79 79s-79-35.37-79-79 35.37-79 79-79 79 35.37 79 79z"
+			stroke="#2E2F31"
+			strokeWidth={8}
+			strokeLinecap="square"
+			strokeLinejoin="round"
+			strokeDasharray="20 20"
+		/>
+		<Path
+			d="M59 83h48M83 59v48"
+			stroke="#454647"
+			strokeWidth={12}
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+	</Svg>
+);
+
+export const ImageArrow = () => (
+	<Svg
+		width={21}
+		height={66}
+		viewBox="0 0 21 66"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<Path
+			d="M20 1c-1.056.07-1.882 1.105-2.458 1.569-2.971 2.395-5.593 4.91-7.877 7.617C3.036 18.042 1 27.55 1 36.412c0 6.18.664 12.091 4.128 17.897 2.177 3.648 5.567 6.371 9.484 9.258.678.5 2.225.784 1.134.784-.72 0-1.363-.186-2.127-.186-1.592 0 1.781.7 1.97.743.586.138 2.32.227 1.722-.557l-1.075-1.82"
+			stroke="#fff"
+			strokeLinecap="round"
+		/>
+	</Svg>
+);
+
+export const ImageIcon = ({ style }) => (
+	<Svg
+		width={48}
+		height={48}
+		viewBox="0 0 48 48"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		style={style}
+	>
+		<Rect width={48} height={48} rx={24} fill="#454647" />
+		<Path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M33.5 30.3a3.2 3.2 0 01-3.2 3.2H17.7a3.2 3.2 0 01-3.2-3.2V17.7a3.2 3.2 0 013.2-3.2h12.6a3.2 3.2 0 013.2 3.2v12.6zm-5.595-7.926a2.375 2.375 0 100-4.75 2.375 2.375 0 000 4.75zm-4.757 4.701c-1.602-1.397-3.6-2.127-5.638-2.078h-.027c-.32 0-.64.016-.957.05v6.088c0 .188.151.34.339.34H25.957a9.832 9.832 0 00-.774-1.85 9.26 9.26 0 00-2.035-2.55zm8.326 4.11c0 .16-.129.29-.288.29h-3.118a11.838 11.838 0 00-1.59-3.647c1.074-.29 2.19-.437 3.314-.435.564 0 1.126.037 1.682.112v3.68z"
+			fill="#fff"
+		/>
+	</Svg>
+);
+
 // ------------------- Styles -------------------------------
 
 const styles = StyleSheet.create({

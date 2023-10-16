@@ -2,14 +2,12 @@ import {
 	View,
 	Text,
 	StyleSheet,
-	TextInput,
 	TouchableWithoutFeedback,
 	Keyboard,
 	KeyboardAvoidingView,
 } from "react-native";
 import { ReferralCodeIcon } from "../../components/svgs";
 import { pageStyles } from "../../styles/pageStyles";
-import Spacer from "../../components/Spacer";
 import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";

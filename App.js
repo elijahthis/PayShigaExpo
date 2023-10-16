@@ -19,6 +19,7 @@ import Onboarding1 from "./screens/onboarding/Onboarding1";
 import ReferralCode from "./screens/onboarding/ReferralCode";
 import OTPCodePage from "./screens/onboarding/OTPCode";
 import UserTagPage from "./screens/onboarding/UserTagPage";
+import DisplayImagePage from "./screens/onboarding/DisplayImagePage";
 
 export default function App() {
 	let [fontsLoaded, fontError] = useFonts({
@@ -40,7 +41,8 @@ export default function App() {
 			{/* <Onboarding1 /> */}
 			{/* <ReferralCode /> */}
 			{/* <OTPCodePage /> */}
-			<UserTagPage />
+			{/* <UserTagPage /> */}
+			<DisplayImagePage />
 		</SafeAreaView>
 	);
 }
