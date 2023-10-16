@@ -20,6 +20,7 @@ import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
+import ImageUpload from "../../components/ImageUpload";
 
 const DisplayImagePage = () => {
 	const colorList = [
@@ -56,27 +57,7 @@ const DisplayImagePage = () => {
 				</Text>
 			</View>
 			<View style={styles.imgWrap}>
-				<View>
-					{selectedColor === "" ? (
-						<AddIcon />
-					) : (
-						<View
-							style={{ ...styles.imgHolder, backgroundColor: selectedColor }}
-						>
-							<Text
-								style={{
-									fontSize: 72,
-									fontFamily: "Rubik_500Medium",
-									color: "#ffffff",
-								}}
-							>
-								E
-							</Text>
-						</View>
-					)}
-
-					<ImageIcon style={{ position: "absolute", right: 0, bottom: 0 }} />
-				</View>
+				<ImageUpload selectedColor={selectedColor} />
 			</View>
 			<View style={styles.colorBottom}>
 				<Text style={styles.customizeTxt}>or customize</Text>
@@ -118,13 +99,7 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		paddingVertical: 10,
 	},
-	imgHolder: {
-		width: 158,
-		height: 158,
-		borderRadius: 84,
-		justifyContent: "center",
-		alignItems: "center",
-	},
+	
 	colorBottom: {
 		flexDirection: "column",
 		alignItems: "stretch",
