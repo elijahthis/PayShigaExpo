@@ -1,6 +1,12 @@
 import { Button, Pressable, StyleSheet, Text } from "react-native";
 
-const CustomButton = ({ text = "Button", onPress, style, textStyle }) => {
+const CustomButton = ({
+	text = "Button",
+	onPress,
+	style,
+	textStyle,
+	disabled = false,
+}) => {
 	const styles = StyleSheet.create({
 		pressable: {
 			backgroundColor: "#6771FF",
@@ -21,7 +27,11 @@ const CustomButton = ({ text = "Button", onPress, style, textStyle }) => {
 	});
 
 	return (
-		<Pressable onPress={onPress} style={{ ...styles.pressable, ...style }}>
+		<Pressable
+			onPress={onPress}
+			style={{ ...styles.pressable, ...style, opacity: disabled ? 0.4 : 1 }}
+			disabled={disabled}
+		>
 			<Text style={{ ...styles.text, ...textStyle }}>{text}</Text>
 		</Pressable>
 	);

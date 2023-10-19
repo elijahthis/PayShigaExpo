@@ -66,7 +66,7 @@ export const TransactionsIcon = ({ color }) => (
 	</View>
 );
 
-export const SearchIcon = ({ color }) => (
+export const SearchIcon2 = ({ color }) => (
 	<View style={styles.container}>
 		<Svg
 			width={33}
@@ -74,6 +74,24 @@ export const SearchIcon = ({ color }) => (
 			viewBox="0 0 33 32"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+		>
+			<Path
+				d="M24.309 25.587a1.4 1.4 0 101.882-2.074l-1.882 2.073zm-2.915-10.615a6.122 6.122 0 01-6.122 6.122v2.8a8.922 8.922 0 008.922-8.922h-2.8zm-6.122 6.122a6.122 6.122 0 01-6.122-6.122h-2.8a8.922 8.922 0 008.922 8.922v-2.8zM9.15 14.972a6.122 6.122 0 016.122-6.122v-2.8a8.922 8.922 0 00-8.922 8.922h2.8zm6.122-6.122a6.122 6.122 0 016.122 6.122h2.8a8.922 8.922 0 00-8.922-8.922v2.8zm4.7 12.8l4.337 3.937 1.882-2.074-4.336-3.936-1.882 2.073z"
+				fill={color}
+			/>
+		</Svg>
+	</View>
+);
+
+export const SearchIcon = ({ color, style }) => (
+	<View style={styles.container}>
+		<Svg
+			// width={33}
+			// height={32}
+			viewBox="0 0 33 32"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			style={style}
 		>
 			<Path
 				d="M24.309 25.587a1.4 1.4 0 101.882-2.074l-1.882 2.073zm-2.915-10.615a6.122 6.122 0 01-6.122 6.122v2.8a8.922 8.922 0 008.922-8.922h-2.8zm-6.122 6.122a6.122 6.122 0 01-6.122-6.122h-2.8a8.922 8.922 0 008.922 8.922v-2.8zM9.15 14.972a6.122 6.122 0 016.122-6.122v-2.8a8.922 8.922 0 00-8.922 8.922h2.8zm6.122-6.122a6.122 6.122 0 016.122 6.122h2.8a8.922 8.922 0 00-8.922-8.922v2.8zm4.7 12.8l4.337 3.937 1.882-2.074-4.336-3.936-1.882 2.073z"
@@ -306,6 +324,26 @@ export const DropdownArrow = () => (
 			fill="#fff"
 			stroke="#fff"
 			strokeWidth={1.75148}
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+	</Svg>
+);
+
+export const CloseModalIcon = ({ onPress }) => (
+	<Svg
+		width={32}
+		height={32}
+		viewBox="0 0 32 32"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+		onPress={onPress}
+	>
+		<Rect width={32} height={32} rx={16} fill="#fff" fillOpacity={0.05} />
+		<Path
+			d="M11.5 20.5l9-9m-9 0l9 9"
+			stroke="#999"
+			strokeWidth={3.2}
 			strokeLinecap="round"
 			strokeLinejoin="round"
 		/>

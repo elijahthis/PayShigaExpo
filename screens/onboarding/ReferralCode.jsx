@@ -69,6 +69,7 @@ const ReferralCode = ({ navigation }) => {
 						}}
 						// textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
 						// style={styles.transparent}
+						disabled={code.length !== 6}
 					/>
 				</View>
 			</KeyboardAvoidingView>

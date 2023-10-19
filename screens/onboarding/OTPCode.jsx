@@ -3,8 +3,13 @@ import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../../state/hookSt";
+import Toast from "react-native-toast-message";
 
 const OTPCodePage = ({ navigation }) => {
+	const globalStateObj = useHookstate(globalState);
+
 	const [code, setCode] = useState("");
 
 	return (
@@ -42,8 +47,20 @@ const OTPCodePage = ({ navigation }) => {
 				<CustomButton
 					text="Continue"
 					onPress={() => {
-						navigation.navigate("UserTagPage");
+						if (globalStateObj.get().currentFlow === "register")
+							navigation.navigate("UserTagPage");
+						else {
+							globalStateObj.set({
+								...globalStateObj.get(),
+								isLoggedIn: true,
+							});
+							Toast.show({
+								type: "success",
+								text1: "Login successful",
+							});
+						}
 					}}
+					disabled={code.length !== 6}
 				/>
 			</View>
 		</OnboardingLayout>

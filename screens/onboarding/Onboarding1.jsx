@@ -13,7 +13,7 @@ const Onboarding1 = ({ navigation }) => {
 				</View>
 				<CustomButton
 					text="Login"
-					onPress={() => {}}
+					onPress={() => navigation.navigate("Login")}
 					textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
 					style={styles.transparent}
 				/>

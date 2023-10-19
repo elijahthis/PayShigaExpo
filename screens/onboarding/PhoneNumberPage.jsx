@@ -2,8 +2,15 @@ import { StyleSheet, View, Text } from "react-native";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
 import PhoneInput from "../../components/PhoneInput";
 import CustomButton from "../../components/Button";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../../state/hookSt";
+import { useState } from "react";
 
 const PhoneNumberPage = ({ navigation }) => {
+	const globalStateObj = useHookstate(globalState);
+	const [selectedCode, setSelectedCode] = useState("+234");
+	const [phoneNumber, setPhoneNumber] = useState("");
+
 	return (
 		<OnboardingLayout navigation={navigation}>
 			<View>
@@ -12,13 +19,24 @@ const PhoneNumberPage = ({ navigation }) => {
 					We will send you a verification code to confirm this is your number
 				</Text>
 			</View>
-			<PhoneInput />
+			<PhoneInput
+				selectedCode={selectedCode}
+				setSelectedCode={setSelectedCode}
+				phoneNumber={phoneNumber}
+				setPhoneNumber={setPhoneNumber}
+			/>
 			<View style={styles.btnWrap}>
 				<CustomButton
 					text="Continue"
 					onPress={() => {
+						globalStateObj.set({
+							...globalStateObj.get(),
+							currentFlow: "register",
+						});
+
 						navigation.navigate("OTPCodePage");
 					}}
+					disabled={phoneNumber.length < 10}
 				/>
 			</View>
 		</OnboardingLayout>

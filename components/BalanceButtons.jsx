@@ -3,6 +3,7 @@ import Spacer from "./Spacer";
 import CustomButton from "./Button";
 import { globalState } from "../state/hookSt";
 import { useHookstate } from "@hookstate/core";
+import Toast, { BaseToast, ErrorToast } from "react-native-toast-message";
 
 const BalanceButtons = () => {
 	const globalStateObj = useHookstate(globalState);
@@ -23,13 +24,22 @@ const BalanceButtons = () => {
 						text="Add Money"
 						style={styles.button}
 						onPress={() => {
-							globalStateObj.set({
-								...globalStateObj.get(),
-								isLoggedIn: false,
+							Toast.show({
+								type: "success",
+								text1: "ODOGWU !! 👀",
 							});
 						}}
 					/>
-					<CustomButton text="Transfer" style={styles.button} />
+					<CustomButton
+						text="Transfer"
+						style={styles.button}
+						onPress={() => {
+							Toast.show({
+								type: "error",
+								text1: "You put money there? 😒",
+							});
+						}}
+					/>
 				</View>
 			</View>
 			<Spacer size={16} />

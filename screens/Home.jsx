@@ -5,6 +5,7 @@ import Spacer from "../components/Spacer";
 import ActionCardRow from "../components/ActionCardRow";
 import { pageStyles } from "../styles/pageStyles";
 import DoMore from "../components/DoMore";
+import Logout from "../components/Logout";
 
 const HomeScreen = () => {
 	return (
@@ -15,6 +16,8 @@ const HomeScreen = () => {
 			<ActionCardRow />
 			<Spacer size={32} />
 			<DoMore />
+			<Logout />
+
 			{/* <BottomTabs /> */}
 		</ScrollView>
 	);

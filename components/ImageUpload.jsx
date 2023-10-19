@@ -10,9 +10,8 @@ import { AddIcon, ImageIcon } from "./svgs";
 import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 
-const ImageUpload = ({ selectedColor = "" }) => {
+const ImageUpload = ({ selectedColor = "", file, setFile }) => {
 	// Stores the selected image URI
-	const [file, setFile] = useState(null);
 
 	// Stores any error message
 	const [error, setError] = useState(null);

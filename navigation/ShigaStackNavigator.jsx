@@ -6,6 +6,7 @@ import DisplayImagePage from "../screens/onboarding/DisplayImagePage";
 import PhoneNumberPage from "../screens/onboarding/PhoneNumberPage";
 import { DarkTheme, NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import LoginScreen from "../screens/onboarding/LoginScreen";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ const ShigaStackNavigator = () => {
 				})}
 			>
 				<Stack.Screen name="Onboarding1" component={Onboarding1} />
+				<Stack.Screen name="Login" component={LoginScreen} />
 				<Stack.Screen name="ReferralCode" component={ReferralCode} />
 				<Stack.Screen name="PhoneNumberPage" component={PhoneNumberPage} />
 				<Stack.Screen name="OTPCodePage" component={OTPCodePage} />

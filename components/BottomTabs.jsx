@@ -11,6 +11,7 @@ import {
 	HomeIcon,
 	ProfileIcon,
 	SearchIcon,
+	SearchIcon2,
 	TransactionsIcon,
 } from "./svgs";
 import { cloneElement } from "react";
@@ -21,7 +22,7 @@ const Tab = createBottomTabNavigator();
 const tabList = [
 	{ name: "Home", component: HomeScreen, icon: HomeIcon },
 	{ name: "Transactions", component: ComingSoon, icon: TransactionsIcon },
-	{ name: "Search", component: ComingSoon, icon: SearchIcon },
+	{ name: "Search", component: ComingSoon, icon: SearchIcon2 },
 	{ name: "Card", component: ComingSoon, icon: CardIcon },
 	{ name: "Profile", component: ComingSoon, icon: ProfileIcon },
 ];

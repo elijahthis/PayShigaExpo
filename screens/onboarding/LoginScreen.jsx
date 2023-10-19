@@ -1,9 +1,14 @@
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import { View, Text, StyleSheet, Pressable, TextInput } from "react-native";
+import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../../state/hookSt";
 
-const UserTagPage = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
+	const globalStateObj = useHookstate(globalState);
+
 	const [userTag, setUserTag] = useState("");
 
 	return (
@@ -18,26 +23,31 @@ const UserTagPage = ({ navigation }) => {
 					paddingBottom: 8,
 				}}
 			>
-				Choose a Shiga ID
+				Login
 			</Text>
-			<Text style={styles.skipText}>
-				Your unique name for getting paid by anyone
-			</Text>
-			<View style={styles.inputWrap}>
-				<Text style={{ ...styles.textInput, paddingTop: 14 }}>@</Text>
-				<TextInput
-					placeholder="chiefcee"
-					style={{ ...styles.textInput, flex: 1 }}
-					placeholderTextColor="#454647"
-					value={userTag}
-					onChangeText={(text) => setUserTag(text)}
-				/>
+			<Text style={styles.skipText}>Enter your unique user tag</Text>
+			<View>
+				<View style={styles.inputWrap}>
+					<Text style={{ ...styles.textInput, paddingTop: 14 }}>@</Text>
+					<TextInput
+						placeholder="chiefcee"
+						style={{ ...styles.textInput, flex: 1 }}
+						placeholderTextColor="#454647"
+						value={userTag}
+						onChangeText={(text) => setUserTag(text)}
+					/>
+				</View>
 			</View>
 			<View style={styles.btnWrap}>
 				<CustomButton
-					text="Continue"
+					text="Login"
 					onPress={() => {
-						navigation.navigate("DisplayImagePage");
+						globalStateObj.set({
+							...globalStateObj.get(),
+							currentFlow: "login",
+						});
+
+						navigation.navigate("OTPCodePage");
 					}}
 					disabled={userTag.length < 3}
 				/>
@@ -46,7 +56,7 @@ const UserTagPage = ({ navigation }) => {
 	);
 };
 
-export default UserTagPage;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
 	title: "",
@@ -69,12 +79,6 @@ const styles = StyleSheet.create({
 		lineHeight: 28,
 		color: "#FFFFFF",
 		paddingVertical: 8,
-	},
-	infoLink: {
-		fontFamily: "Rubik_500Medium",
-		fontSize: 14,
-		lineHeight: 19,
-		color: "#A2A3A3",
 	},
 
 	btnWrap: {

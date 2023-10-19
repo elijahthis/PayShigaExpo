@@ -10,8 +10,15 @@ import HomeScreen from "../screens/Home";
 import { useHookstate } from "@hookstate/core";
 import { globalState } from "../state/hookSt";
 import PhoneCodeModal from "./PhoneCodeModal";
+import { useState } from "react";
 
-const PhoneInput = ({ navigation }) => {
+const PhoneInput = ({
+	navigation,
+	selectedCode,
+	setSelectedCode,
+	phoneNumber,
+	setPhoneNumber,
+}) => {
 	const globalStateObj = useHookstate(globalState);
 
 	return (
@@ -26,7 +33,7 @@ const PhoneInput = ({ navigation }) => {
 				}}
 			>
 				<View style={styles.countryCode}>
-					<Text style={styles.countryCodeTxt}>+234</Text>
+					<Text style={styles.countryCodeTxt}>{selectedCode}</Text>
 					<DropdownArrow />
 				</View>
 			</TouchableOpacity>
@@ -35,8 +42,13 @@ const PhoneInput = ({ navigation }) => {
 				placeholder="810 456 7789"
 				placeholderTextColor="#A2A3A3"
 				keyboardType="phone-pad"
+				value={phoneNumber}
+				onChangeText={(text) => setPhoneNumber(text)}
 			/>
-			<PhoneCodeModal />
+			<PhoneCodeModal
+				selectedCode={selectedCode}
+				setSelectedCode={setSelectedCode}
+			/>
 		</View>
 	);
 };

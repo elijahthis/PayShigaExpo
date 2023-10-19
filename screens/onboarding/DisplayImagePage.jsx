@@ -1,28 +1,12 @@
-import {
-	View,
-	Text,
-	StyleSheet,
-	TextInput,
-	TouchableWithoutFeedback,
-	Keyboard,
-	KeyboardAvoidingView,
-	Pressable,
-} from "react-native";
-import {
-	AddIcon,
-	ImageArrow,
-	ImageIcon,
-	ReferralCodeIcon,
-} from "../../components/svgs";
-import { pageStyles } from "../../styles/pageStyles";
-import Spacer from "../../components/Spacer";
-import NumberInput from "../../components/NumberInput";
+import { View, Text, StyleSheet, Pressable } from "react-native";
+import { ImageArrow } from "../../components/svgs";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
 import ImageUpload from "../../components/ImageUpload";
 import { useHookstate } from "@hookstate/core";
 import { globalState } from "../../state/hookSt";
+import Toast from "react-native-toast-message";
 
 const DisplayImagePage = ({ navigation }) => {
 	const colorList = [
@@ -39,6 +23,7 @@ const DisplayImagePage = ({ navigation }) => {
 	const globalStateObj = useHookstate(globalState);
 
 	const [selectedColor, setSelectedColor] = useState("");
+	const [file, setFile] = useState(null);
 
 	return (
 		<OnboardingLayout navigation={navigation}>
@@ -61,7 +46,11 @@ const DisplayImagePage = ({ navigation }) => {
 				</Text>
 			</View>
 			<View style={styles.imgWrap}>
-				<ImageUpload selectedColor={selectedColor} />
+				<ImageUpload
+					selectedColor={selectedColor}
+					file={file}
+					setFile={setFile}
+				/>
 			</View>
 			<View style={styles.colorBottom}>
 				<Text style={styles.customizeTxt}>or customize</Text>
@@ -87,7 +76,12 @@ const DisplayImagePage = ({ navigation }) => {
 							...globalStateObj.get(),
 							isLoggedIn: true,
 						});
+						Toast.show({
+							type: "success",
+							text1: "Registration successful",
+						});
 					}}
+					disabled={!file && !selectedColor}
 				/>
 			</View>
 		</OnboardingLayout>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import {
 	useFonts,
@@ -9,17 +8,13 @@ import {
 	Rubik_800ExtraBold,
 	Rubik_900Black,
 } from "@expo-google-fonts/rubik";
-import {
-	ShortStack_400Regular,
-	ShortStack_700Bold,
-} from "@expo-google-fonts/short-stack";
-import BottomTabs from "./components/BottomTabs";
-import HomeScreen from "./screens/Home";
-import { DarkTheme, NavigationContainer } from "@react-navigation/native";
+import { ShortStack_400Regular } from "@expo-google-fonts/short-stack";
 import ShigaStackNavigator from "./navigation/ShigaStackNavigator";
 import ShigaTabNavigator from "./navigation/ShigaTabNavigator";
 import { useHookstate } from "@hookstate/core";
 import { globalState } from "./state/hookSt";
+import Toast from "react-native-toast-message";
+import { toastConfig } from "./config/toastConfig";
 
 export default function App() {
 	const globalStateObj = useHookstate(globalState);
@@ -45,6 +40,7 @@ export default function App() {
 			) : (
 				<ShigaStackNavigator />
 			)}
+			<Toast position="top" config={toastConfig} />
 		</SafeAreaView>
 	);
 }
