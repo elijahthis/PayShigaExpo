@@ -35,12 +35,12 @@ export default function App() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			{globalStateObj.value.isLoggedIn ? (
-				<ShigaTabNavigator />
-			) : (
-				<ShigaStackNavigator />
-			)}
-			<Toast position="top" config={toastConfig} />
+				{globalStateObj.value.isLoggedIn ? (
+					<ShigaTabNavigator />
+				) : (
+					<ShigaStackNavigator />
+				)}
+				<Toast position="top" config={toastConfig} />
 		</SafeAreaView>
 	);
 }

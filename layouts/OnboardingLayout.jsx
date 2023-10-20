@@ -9,6 +9,8 @@ import { pageStyles } from "../styles/pageStyles";
 import Icon from "react-native-vector-icons/Entypo";
 
 const OnboardingLayout = ({ children, navigation }) => {
+	const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
+
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			<KeyboardAvoidingView
@@ -16,8 +18,13 @@ const OnboardingLayout = ({ children, navigation }) => {
 					...pageStyles.container,
 
 					paddingBottom: 16,
+
+					// paddingHorizontal: 40,
+					// paddingTop: 12,
+					// paddingBottom: 16,
 				}}
 				behavior={Platform.OS === "ios" ? "padding" : "height"}
+				keyboardVerticalOffset={keyboardVerticalOffset}
 			>
 				<Icon
 					name="chevron-left"

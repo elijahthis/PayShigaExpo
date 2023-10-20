@@ -2,8 +2,12 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
 import OnboardingLayout from "../../layouts/OnboardingLayout";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../../state/hookSt";
 
 const UserTagPage = ({ navigation }) => {
+	const globalStateObj = useHookstate(globalState);
+
 	const [userTag, setUserTag] = useState("");
 
 	return (
@@ -37,6 +41,11 @@ const UserTagPage = ({ navigation }) => {
 				<CustomButton
 					text="Continue"
 					onPress={() => {
+						globalStateObj.set({
+							...globalStateObj.get(),
+							shiga_id: userTag,
+						});
+
 						navigation.navigate("DisplayImagePage");
 					}}
 					disabled={userTag.length < 3}

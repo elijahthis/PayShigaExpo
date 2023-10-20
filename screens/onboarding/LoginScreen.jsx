@@ -45,6 +45,7 @@ const LoginScreen = ({ navigation }) => {
 						globalStateObj.set({
 							...globalStateObj.get(),
 							currentFlow: "login",
+							shiga_id: userTag,
 						});
 
 						navigation.navigate("OTPCodePage");

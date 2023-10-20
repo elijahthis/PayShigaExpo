@@ -75,6 +75,7 @@ const DisplayImagePage = ({ navigation }) => {
 						globalStateObj.set({
 							...globalStateObj.get(),
 							isLoggedIn: true,
+							display_image: file || selectedColor,
 						});
 						Toast.show({
 							type: "success",

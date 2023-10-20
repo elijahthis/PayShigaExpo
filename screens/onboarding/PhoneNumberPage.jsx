@@ -32,6 +32,7 @@ const PhoneNumberPage = ({ navigation }) => {
 						globalStateObj.set({
 							...globalStateObj.get(),
 							currentFlow: "register",
+							phone_number: `${selectedCode}${phoneNumber}`,
 						});
 
 						navigation.navigate("OTPCodePage");

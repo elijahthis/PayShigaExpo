@@ -11,8 +11,13 @@ import { pageStyles } from "../../styles/pageStyles";
 import NumberInput from "../../components/NumberInput";
 import { useState } from "react";
 import CustomButton from "../../components/Button";
+import { useHookstate } from "@hookstate/core";
+import { globalState } from "../../state/hookSt";
 
 const ReferralCode = ({ navigation }) => {
+	const keyboardVerticalOffset = Platform.OS === "ios" ? 40 : 0;
+	const globalStateObj = useHookstate(globalState);
+
 	const [code, setCode] = useState("");
 
 	return (
@@ -25,6 +30,7 @@ const ReferralCode = ({ navigation }) => {
 					paddingBottom: 16,
 				}}
 				behavior={Platform.OS === "ios" ? "padding" : "height"}
+				keyboardVerticalOffset={keyboardVerticalOffset}
 			>
 				<ReferralCodeIcon style={{ marginBottom: 20 }} />
 				<Text
@@ -66,6 +72,11 @@ const ReferralCode = ({ navigation }) => {
 						text="Continue"
 						onPress={() => {
 							navigation.navigate("PhoneNumberPage");
+
+							globalStateObj.set({
+								...globalStateObj.get(),
+								referral_code: code,
+							});
 						}}
 						// textStyle={{ ...styles.btnTxt, fontSize: 17, color: "#ffffff" }}
 						// style={styles.transparent}
